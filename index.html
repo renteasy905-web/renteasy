@@ -1,66 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <!-- ZOOM COMPLETELY DISABLED -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Chat Point App</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>Chat Point App – Official APK Download</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Official Chat Point App APK Download (Latest Version). Fast, secure & works on all Android phones. Updated November 2025.">
+  <meta name="keywords" content="Chat Point, ChatPoint App, Chat Point APK, Food Delivery App, ChatPoint Download">
+  <meta name="author" content="Chat Point">
 
   <style>
+    /* Modern Animated Background */
     body {
       margin: 0;
-      font-family: Arial;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #4c59ff, #7b2ff7, #ff4f8b);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+      color: white;
       text-align: center;
       padding: 40px 20px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
     }
-    h1 { font-size: 36px; margin-bottom: 10px; }
-    h2 { font-size: 24px; }
-    p { font-size: 18px; line-height: 1.6; }
 
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Glass Card */
+    .card {
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 25px;
+      padding: 40px 25px;
+      max-width: 450px;
+      margin: 0 auto;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    p { 
+      font-size: 18px;
+      opacity: 0.95;
+    }
+
+    /* Modern Button */
     .btn {
       display: inline-block;
-      background: #ff4757;
-      color: white;
-      padding: 22px 60px;
-      font-size: 28px;
+      background: #ff3366;
+      padding: 18px 55px;
+      font-size: 26px;
       font-weight: bold;
-      border-radius: 50px;
-      margin: 30px;
-      box-shadow: 0 10px 30px rgba(255, 71, 87, 0.6);
-      animation: pulse 2s infinite;
+      color: white;
       text-decoration: none;
+      border-radius: 60px;
+      margin: 25px 0;
+      box-shadow: 0 4px 25px rgba(255, 51, 102, 0.8);
+      transition: 0.3s ease;
+      animation: glow 2s infinite;
     }
 
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255,71,87,0.8); }
-      70% { box-shadow: 0 0 0 25px rgba(255,71,87,0); }
-      100% { box-shadow: 0 0 0 0 rgba(255,71,87,0); }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 35px rgba(255, 51, 102, 1);
     }
 
-    .btn:active { transform: scale(0.95); }
+    @keyframes glow {
+      0% { box-shadow: 0 0 20px rgba(255, 51, 102, 0.7); }
+      50% { box-shadow: 0 0 35px rgba(255, 51, 102, 1); }
+      100% { box-shadow: 0 0 20px rgba(255, 51, 102, 0.7); }
+    }
 
     .small {
       font-size: 16px;
-      opacity: 0.9;
-      margin-top: 40px;
+      opacity: 0.85;
+      margin-top: 30px;
     }
   </style>
 </head>
 
 <body>
-  <h1>Chat Point</h1>
-  <p>100% Safe • Latest Version • November 2025</p>
 
-  <!-- DOWNLOAD BUTTON -->
-  <a href="chat-point-app.apk" class="btn" download>
-    Download Chat Point (28 MB)
-  </a>
+  <div class="card">
+    <h1>Chat Point App</h1>
+    <p>Fast • Secure • Latest Version<br>Updated November 2025</p>
 
-  <h2>After downloading:</h2>
-  <p>1. Open the file<br>2. Allow this source<br>3. Install & enjoy!</p>
+    <!-- DOWNLOAD BUTTON -->
+    <a href="chat-point-app.apk" class="btn" download>
+      Download Chat Point (28 MB)
+    </a>
 
-  <p class="small">Direct APK • Works on all Android phones • Made in India</p>
+    <h2 style="margin-top: 20px">How to Install?</h2>
+    <p>
+      1. Download the file<br>
+      2. Open it<br>
+      3. Allow unknown sources<br>
+      4. Install & enjoy!
+    </p>
+
+    <p class="small">Works on all Android phones • Direct APK • Made in India 🇮🇳</p>
+  </div>
+
 </body>
 </html>
