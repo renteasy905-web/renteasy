@@ -1,251 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-  <!-- SECURITY -->
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-  <!-- SEO -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <title>ChatPoint – Food Delivery in Sindagi | Order Online Fast</title>
-  <meta name="description" content="Order food online in Sindagi with ChatPoint – Track delivery live, pay easily, get offers. Download APK v2.9.1 – Fast, safe & local food delivery app.">
+  <meta name="description" content="Fastest food delivery in Sindagi. Live tracking, COD & UPI, instant install.">
 
-  <!-- Icons -->
+  <!-- Icons (you already have these) -->
   <link rel="icon" href="icon-512.jpg" type="image/jpeg">
-  <link rel="icon" href="icon-192.jpg" sizes="192x192" type="image/jpeg">
+  <link rel="icon" href="icon-192.jpg" sizes="192x192">
   <link rel="apple-touch-icon" href="icon-512.jpg">
   <meta name="theme-color" content="#59FF94">
 
-  <!-- Social -->
-  <meta property="og:title" content="ChatPoint – Food Delivery Sindagi">
-  <meta property="og:description" content="Order food fast in Sindagi – Live tracking, multiple payments, exclusive offers! Download ChatPoint APK now.">
-  <meta property="og:image" content="https://chatpoint.shop/icon-512.jpg">
-  <meta property="og:url" content="https://chatpoint.shop">
-  <meta property="og:type" content="website">
+  <!-- PWA Manifest – Instant Install (inline, no extra file needed) -->
+  <link rel="manifest" href="data:application/manifest+json,{
+    %22name%22:%22ChatPoint%22,
+    %22short_name%22:%22ChatPoint%22,
+    %22start_url%22:%22.%22,
+    %22display%22:%22standalone%22,
+    %22background_color%22:%22%230E0E0E%22,
+    %22theme_color%22:%22%2359FF94%22,
+    %22icons%22:[
+      {%22src%22:%22icon-192.jpg%22,%22sizes%22:%22192x192%22,%22type%22:%22image/jpeg%22},
+      {%22src%22:%22icon-512.jpg%22,%22sizes%22:%22512x512%22,%22type%22:%22image/jpeg%22}
+    ]
+  }">
 
-  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg: #0E0E0E;
-      --card: #1A1A1A;
-      --muted: #262626;
-      --accent: #59FF94;
-      --accent-strong: #32E06A;
-      --gold: #FFB800;
-      --text: #F5F5F5;
-      --subtext: #BDBDBD;
-      --glass: rgba(255,255,255,0.03);
-      --radius: 16px;
-      --transition: 280ms cubic-bezier(.2,.9,.3,1);
-      --shadow-card: 0 20px 60px rgba(0,0,0,0.7);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      background: radial-gradient(1400px 700px at 10% 10%, rgba(89,255,148,0.04), transparent 12%),
-                  radial-gradient(1000px 500px at 90% 90%, rgba(89,255,148,0.03), transparent 10%),
-                  var(--bg);
-      color:var(--text);
-      font-family:'Space Grotesk',system-ui;
-      line-height:1.5;
-      overflow-x:hidden;
-      padding-bottom:100px;
-    }
+    :root{--bg:#0E0E0E;--card:#1A1A1A;--accent:#59FF94;--accent2:#32E06A;--text:#F5F5F5;--sub:#BDBDBD}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;padding-bottom:100px;
+      background:radial-gradient(1400px at 10% 10%,rgba(89,255,148,0.04),transparent 12%),
+                  radial-gradient(1000px at 90% 90%,rgba(89,255,148,0.03),transparent 10%),var(--bg);}
+    .float{position:fixed;pointer-events:none;opacity:0.3;animation:floatUp linear infinite}
+    @keyframes floatUp{0%,100%{transform:translateY(20vh) rotate(0deg) scale(0.9);opacity:0.2}50%{transform:translateY(-15vh) rotate(180deg) scale(1.1);opacity:0.4}}
+    .f1{left:5%;width:90px;animation-duration:28s}.f2{left:20%;width:70px;animation-duration:24s;animation-delay:4s}
+    .f3{right:8%;width:120px;animation-duration:32s;animation-delay:7s}.f4{left:70%;width:100px;animation-duration:26s;animation-delay:2s}
+    .f5{right:28%;width:80px;animation-duration:30s;animation-delay:10s}
 
-    /* Floating Shapes */
-    .float {
-      position:fixed; pointer-events:none; opacity:0.3; filter:blur(0.3px);
-      z-index:0; animation:floatUp linear infinite;
-    }
-    @keyframes floatUp {
-      0% { transform: translateY(20vh) rotate(0deg) scale(0.9); opacity:0.2 }
-      50% { transform: translateY(-15vh) rotate(180deg) scale(1.1); opacity:0.4 }
-      100% { transform: translateY(20vh) rotate(360deg) scale(0.9); opacity:0.2 }
-    }
-    .float.f1{left:5%;width:90px;animation-duration:28s}
-    .float.f2{left:20%;width:70px;animation-duration:24s;animation-delay:4s}
-    .float.f3{right:8%;width:120px;animation-duration:32s;animation-delay:7s}
-    .float.f4{left:70%;width:100px;animation-duration:26s;animation-delay:2s}
-    .float.f5{right:28%;width:80px;animation-duration:30s;animation-delay:10s}
-
-    /* Header */
-    header {
-      position:fixed;top:14px;left:50%;transform:translateX(-50%);
-      width:min(1100px,94%);z-index:30;
-      padding:12px 20px;border-radius:16px;
-      background: rgba(20,20,20,0.7);backdrop-filter:blur(12px);
-      border:1px solid rgba(255,255,255,0.05);box-shadow:0 8px 32px rgba(0,0,0,0.7);
-      display:flex;justify-content:space-between;align-items:center;
-    }
-    .logo{
-      font-size:22px;font-weight:800;display:flex;gap:12px;align-items:center;
-    }
+    header{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:94%;max-width:1100px;z-index:99;
+      padding:12px 20px;background:rgba(20,20,20,0.7);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.05);
+      border-radius:16px;display:flex;justify-content:space-between;align-items:center;}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:22px;}
     .logo img{width:40px;height:40px;border-radius:12px;}
-    .version{
-      font-size:13px;padding:8px 14px;border-radius:999px;
-      background:rgba(89,255,148,0.1);color:var(--accent);font-weight:700;
-      border:1px solid rgba(89,255,148,0.2);
-    }
+    .version{padding:8px 14px;background:rgba(89,255,148,0.1);border:1px solid rgba(89,255,148,0.2);border-radius:99px;color:var(--accent);font-weight:700;font-size:13px;}
 
-    /* Layout */
-    main{
-      max-width:1200px;margin:120px auto 60px;padding:0 20px;
-      display:grid;grid-template-columns:1fr 460px;gap:36px;
-    }
+    main{max-width:1200px;margin:120px auto 60px;padding:0 20px;display:grid;grid-template-columns:1fr 460px;gap:36px;}
+    .hero h1{font-size:48px;font-weight:800;background:linear-gradient(90deg,#FFF,#59FF94);-webkit-background-clip:text;color:transparent;}
+    .loc{display:inline-flex;gap:10px;align-items:center;padding:10px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(89,255,148,0.1);border-radius:99px;color:var(--accent);font-weight:700;font-size:14px;}
+    .pill{background:rgba(89,255,148,0.08);border:1px solid rgba(89,255,148,0.15);padding:10px 16px;border-radius:14px;color:var(--accent);font-weight:700;font-size:14px;margin:6px;}
 
-    /* Hero section */
-    .hero h1{
-      font-size:48px;line-height:1.1;font-weight:800;margin-bottom:12px;
-      background:linear-gradient(90deg,#FFF,#59FF94);-webkit-background-clip:text;background-clip:text;
-      color:transparent;
-    }
-    .subtitle{font-size:17px;color:var(--subtext);max-width:70ch;margin:16px 0 24px;}
-    .loc{
-      display:inline-flex;gap:10px;align-items:center;padding:10px 16px;border-radius:999px;
-      background:var(--glass);border:1px solid rgba(89,255,148,0.1);color:var(--accent);
-      font-weight:700;font-size:14px;
-    }
-    .features{display:flex;gap:14px;flex-wrap:wrap;margin:28px 0;}
-    .pill{
-      background:rgba(89,255,148,0.08);border:1px solid rgba(89,255,148,0.15);
-      padding:12px 18px;border-radius:14px;font-weight:700;font-size:14px;color:var(--accent);
-    }
+    .download-card{background:linear-gradient(135deg,rgba(20,20,20,0.95),rgba(15,15,15,0.9));padding:32px;border-radius:20px;
+      border:1px solid rgba(89,255,148,0.12);box-shadow:0 20px 60px rgba(0,0,0,0.7);position:sticky;top:100px;}
+    .big-btn{display:block;width:100%;padding:18px;margin:16px 0 0;border:none;border-radius:14px;font-weight:800;
+      font-size:17px;text-align:center;cursor:pointer;box-shadow:0 12px 40px rgba(89,255,148,0.3);text-decoration:none;color:#000;}
+    .btn-apk{background:linear-gradient(90deg,var(--accent),var(--accent2));}
+    .btn-instant{background:linear-gradient(90deg,#00FFD1,#32E06A);}
 
-    /* Right side card */
-    .download-card{
-      background:linear-gradient(135deg,rgba(20,20,20,0.95),rgba(15,15,15,0.9));
-      border-radius:20px;padding:32px;border:1px solid rgba(89,255,148,0.12);
-      box-shadow:var(--shadow-card);position:sticky;top:100px;
-    }
-    .brand-large{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
-    .brand-large img{width:64px;height:64px;border-radius:16px;}
-    .desc{font-size:15px;color:var(--subtext);margin:8px 0 20px;}
-
-    .big-btn{
-      background:linear-gradient(90deg,var(--accent),var(--accent-strong));
-      color:#000;font-weight:800;font-size:17px;padding:16px;border:none;
-      border-radius:14px;cursor:pointer;text-align:center;text-decoration:none;display:block;
-      margin-top:16px;box-shadow:0 12px 40px rgba(89,255,148,0.3);
-    }
-
-    .apk-meta{margin:16px 0;font-size:14px;color:var(--subtext);}
-
-    /* How to install */
-    .install-box{
-      background:rgba(255,255,255,0.03);border-radius:14px;padding:18px;
-      border:1px solid rgba(255,255,255,0.05);margin-top:16px;
-    }
-    .step{display:flex;gap:12px;margin:12px 0;}
-    .num{
-      width:36px;height:36px;border-radius:10px;background:rgba(89,255,148,0.15);
-      color:var(--accent);font-weight:800;display:grid;place-items:center;flex-shrink:0;
-      border:1px solid rgba(89,255,148,0.3);
-    }
-
-    footer{margin-top:80px;text-align:center;color:var(--subtext);font-size:14px;padding:20px;}
-
-    /* Mobile */
-    @media (max-width:980px){
-      main{grid-template-columns:1fr;margin-top:110px;}
-      .download-card{position:static;margin-bottom:32px;}
-    }
-    @media (max-width:600px){
-      .hero h1{font-size:38px;}
-    }
+    @media(max-width:980px){main{grid-template-columns:1fr;margin-top:110px;}.download-card{position:static;}}
+    @media(max-width:600px){.hero h1{font-size:38px;}}
   </style>
 </head>
-
 <body>
 
   <!-- Floating Shapes -->
-  <svg class="float f1" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#59FF94"/></svg>
-  <svg class="float f2" viewBox="0 0 48 48"><rect x="6" y="6" width="36" height="36" rx="10" fill="#59FF94"/></svg>
-  <svg class="float f3" viewBox="0 0 48 48"><path d="M6 12h36v24H6z" fill="#32E06A"/></svg>
-  <svg class="float f4" viewBox="0 0 48 48"><path d="M12 6 L36 24 L12 42 Z" fill="#59FF94"/></svg>
-  <svg class="float f5" viewBox="0 0 48 48"><circle cx="24" cy="24" r="12" fill="#32E06A"/></svg>
+  <svg class="float f1"><circle cx="24" cy="24" r="22" fill="#59FF94"/></svg>
+  <svg class="float f2"><rect x="6" y="6" width="36" height="36" rx="10" fill="#59FF94"/></svg>
+  <svg class="float f3"><path d="M6 12h36v24H6z" fill="#32E06A"/></svg>
+  <svg class="float f4"><path d="M12 6 L36 24 L12 42 Z" fill="#59FF94"/></svg>
+  <svg class="float f5"><circle cx="24" cy="24" r="12" fill="#32E06A"/></svg>
 
-  <!-- Header -->
   <header>
-    <div class="logo">
-      <img src="icon-512.jpg" alt="ChatPoint Logo">
-      <div>
-        ChatPoint
-        <div style="font-size:13px;color:var(--subtext);font-weight:600;">Sindagi • Food Delivery</div>
-      </div>
-    </div>
+    <div class="logo"><img src="icon-512.jpg" alt="Logo"> <div>ChatPoint <small style="font-size:13px;color:#aaa;display:block;">Sindagi • Food Delivery</small></div></div>
     <div class="version">Trusted by 100+ users</div>
   </header>
 
-  <!-- MAIN -->
   <main>
-
-    <!-- RIGHT SIDE -->
     <aside>
       <div class="download-card">
-        <div class="brand-large">
-          <img src="icon-512.jpg" alt="ChatPoint App">
-          <div>
-            <h2>ChatPoint App</h2>
-            <div class="desc">Fastest food delivery in Sindagi — order in seconds!</div>
-          </div>
+        <div style="display:flex;gap:16px;align-items:center;margin-bottom:20px;">
+          <img src="icon-512.jpg" width="64" height="64" style="border-radius:16px;">
+          <div><h2>ChatPoint App</h2><p style="color:#aaa;font-size:15px;">Fastest delivery in Sindagi</p></div>
         </div>
 
-        <!-- Order Website -->
-        <a href="https://chatpoint1.onrender.com" class="big-btn">Order Online — Open Website</a>
+        <a href="https://chatpoint1.onrender.com" class="big-btn btn-apk">Order Online – Open Website</a>
+        <a href="CHAT POINT.apk" download class="big-btn btn-apk">Download APK • 28 MB</a>
 
-        <!-- APK Download -->
-        <a href="CHAT POINT.apk" class="big-btn" download>Download APK • 28 MB</a>
+        <!-- Instant Install Button – Always visible, right below APK -->
+        <button id="installBtn" class="big-btn btn-instant">
+          Add to Home Screen (Instant Install)
+        </button>
 
-        <div class="apk-meta">
-          <strong>Updated November 19, 2025</strong> • v2.9.1
-        </div>
-
-        <div class="install-box">
-          <strong style="color:var(--accent)">How to Install (30 seconds)</strong>
-          <div class="step"><div class="num">1</div><p>Tap <strong>Download APK</strong></p></div>
-          <div class="step"><div class="num">2</div><p>Open file → Allow installation</p></div>
-          <div class="step"><div class="num">3</div><p>Install → Open → Start ordering!</p></div>
-        </div>
-
+        <p style="margin:16px 0;font-size:14px;color:#aaa;">Updated November 19, 2025 • v2.9.1</p>
       </div>
     </aside>
 
-    <!-- LEFT SIDE HERO -->
     <section class="hero">
-      <div class="loc">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
-        </svg>
-        <span>Sindagi, Karnataka</span>
-      </div>
-
+      <div class="loc"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg> Sindagi, Karnataka</div>
       <h1>Food Delivery That Feels Like Home</h1>
-
-      <p class="subtitle">
-        Order from your favorite local restaurants in Sindagi.  
-        Live tracking, multiple payments, exclusive offers —  
-        all in one fast, secure app built for our town.
-      </p>
-
-      <div class="features">
-        <div class="pill">Live Order Tracking</div>
-        <div class="pill">Contactless Delivery</div>
-        <div class="pill">UPI • Cash • Wallet</div>
-        <div class="pill">Exclusive Offers</div>
-        <div class="pill">24/7 Support</div>
+      <p style="margin:16px 0 24px;color:#aaa;font-size:17px;">Live tracking • COD & UPI • Exclusive offers</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <div class="pill">Live Tracking</div><div class="pill">Contactless</div><div class="pill">Cash • UPI</div><div class="pill">Offers</div><div class="pill">24/7 Support</div>
       </div>
-
     </section>
-
   </main>
 
-  <!-- Footer -->
-  <footer>
-    © 2025 <strong>ChatPoint</strong> • Made with love in Sindagi
-  </footer>
+  <footer style="text-align:center;padding:40px;color:#666;">© 2025 ChatPoint • Made in Sindagi with love</footer>
 
+  <!-- Instant Install Script -->
+  <script>
+    let deferredPrompt;
+    const btn = document.getElementById('installBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
+
+    btn.addEventListener('click', () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(() => {
+          btn.textContent = 'Installed!';
+          btn.disabled = true;
+        });
+      } else {
+        alert('Open in Chrome on Android for instant install');
+      }
+    });
+  </script>
 </body>
 </html>
